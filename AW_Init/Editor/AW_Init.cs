@@ -87,10 +87,10 @@ namespace ANGELWARE.AW_Init
 
             if (failCount > 0) return;
 
-            if (Directory.Exists(_manifest.packagePath))
+            if (File.Exists(_manifest.packagePath))
                 AssetDatabase.ImportPackage(_manifest.packagePath, true);
             else
-                _logger.LogError("Critical Error! Package couldn't be found!");
+                _logger.LogError($"Critical Error! Package couldn't be found! {_manifest.packagePath}");
         }
     }
 }
